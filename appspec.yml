@@ -1,0 +1,13 @@
+version: 0.0
+os: linux
+files:
+ - source: .
+   destination: /var/www/html/
+hooks:  
+  BeforeInstall:
+    - location: scripts/clean-www-html.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: scripts/grupo-html.sh
+      timeout: 300

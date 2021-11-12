@@ -1,0 +1,157 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size: 1em;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	background: #e6e6e6;
+}
+
+#header{
+	background-color: #FFA400;
+	padding: px;
+	text-align: center;
+
+}
+
+#logo, #menu{
+	padding: 10px;
+}
+
+#area{
+	width: 920px;
+	margin: 0 auto;
+	padding: 15px;
+
+}
+
+#posts-area{
+	width: 660px;
+	float: left;
+}
+
+#side-area{
+	width: 240px;
+	float: right;
+}
+
+
+.posts{
+	padding: 20px;
+	margin-bottom: 20px;
+	background: white;
+}
+
+#baseboard{
+	clear: both;
+	text-align: center;
+	padding: 15px;
+	background: #CCC;
+}
+
+#header a:link, #header a:visited{
+	color: #FFF;
+	padding: 8px 12px;
+}
+
+#header a:hover{
+	color: #FFF;
+	background: #383b74;
+}
+
+a:link, a:visited{
+	color: #383b74
+}
+
+a:hover{
+	text-decoration: none;
+	font-weight: bold;
+}	
+
+a{
+	text-decoration: none;
+}
+
+
+h1{
+	color: #383b74;
+	font-size: 3.5em;
+	font-family: monospace;
+}
+
+h2{
+	color: #FFA400;
+}
+
+h3{
+	color: #565656;
+	background: #CCC;
+	padding: 5px;
+}
+
+
+.white{
+	color: white;
+}
+
+.post-date{
+	font-size: 0.8em;
+	border-bottom: 1px solid #f4f4f4;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	display: block;
+}
+
+.absolute {
+ width: 250px;
+ position: absolute;
+ top: left;
+}
+
+.side-content{
+	background: white;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+.side-posts{
+	font-size: 0.9em;
+	padding: 5px;
+	border-bottom: 1px groove #CCC;
+}
+
+/* Style the search field */
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 69%;
+  background: #f1f1f1;
+}
+
+/* Style the submit button */
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #FFA400;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #383b74;
+}
+
+/* Clear floats */
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
