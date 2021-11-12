@@ -83,7 +83,7 @@ jobs:
             --deployment-config-name CodeDeployDefault.OneAtATime \
             --github-location repository=${{ github.repository }},commitId=${{ github.sha }}
 
-  EC2 public IP address:
+  ec2-public-ip-address:
     runs-on: ubuntu-latest
     needs: [deployment-codedeploy]
     if: github.ref == 'refs/heads/main'
