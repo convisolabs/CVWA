@@ -34,9 +34,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-2
 
-      - name: Install codedeploy.sh
-        id: wget-install-codedeploy
-        run: wget https://raw.githubusercontent.com/G4L1T0/install-codedeploy/main/install-codedeploy-cvwa.sh && chmod +x install-codedeploy.sh
+      - name: Install install-codedeploy-cvwa.sh
+        id: wget-install-codedeploy-cvwa
+        run: wget https://raw.githubusercontent.com/G4L1T0/install-codedeploy/main/install-codedeploy-cvwa.sh && chmod +x install-codedeploy-cvwa.sh
 
       - name: Create EC2
         id: create-ec2-tags
@@ -78,8 +78,8 @@ jobs:
         id: deploy
         run: |
           aws deploy create-deployment \
-            --application-name deploy-app-name \
-            --deployment-group-name grupo-deploy-app-name \
+            --application-name deploy-app-name-cvwa \
+            --deployment-group-name grupo-deploy-app-cvwa \
             --deployment-config-name CodeDeployDefault.OneAtATime \
             --github-location repository=${{ github.repository }},commitId=${{ github.sha }}
 
