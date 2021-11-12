@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: Deploy CVWA
 on:
   push:
     branches: [ main ]
@@ -19,7 +19,7 @@ jobs:
         run: |
           aws ec2 terminate-instances \
             --instance-ids `aws ec2 describe-instances \
-            --filters Name=tag:name,Values=ec2-deploy-cvna \
+            --filters Name=tag:name,Values=ec2-deploy-cvwa \
             --query Reservations[].Instances[].InstanceId --output text`
 
   create-ec2:
@@ -36,7 +36,7 @@ jobs:
 
       - name: Install codedeploy.sh
         id: wget-install-codedeploy
-        run: wget https://raw.githubusercontent.com/G4L1T0/install-codedeploy/main/install-codedeploy.sh && chmod +x install-codedeploy.sh
+        run: wget https://raw.githubusercontent.com/G4L1T0/install-codedeploy/main/install-codedeploy-cvwa.sh && chmod +x install-codedeploy.sh
 
       - name: Create EC2
         id: create-ec2-tags
@@ -49,8 +49,8 @@ jobs:
             --security-group-ids sg-0d40b040556c42d54 \
             --subnet-id subnet-06166ec0280d94c08 \
             --iam-instance-profile Name=CodeDeploy_EC2Role \
-            --user-data file://install-codedeploy.sh \
-            --tag-specifications 'ResourceType=instance,Tags=[{Key=name,Value=ec2-deploy-cvna}]'
+            --user-data file://install-codedeploy-cvwa.sh \
+            --tag-specifications 'ResourceType=instance,Tags=[{Key=name,Value=ec2-deploy-cvwa}]'
 
   sleep-jobs:
     runs-on: ubuntu-latest
