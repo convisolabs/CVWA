@@ -25,11 +25,4 @@ O objetivo desse desafio é que o candidato analise e encontre falhas no ambient
 
 Prazo: 7 dias
 
-## Write-Up
-
-Challenge | Team | Link |
-----------|------|-------
-CVWA - Gladius Blog | PTaaS | [Link](https://github.com/convisolabs/CVWA/blob/main/write-up/cvwa-write-up.md)
- 
- 
- 
+---
