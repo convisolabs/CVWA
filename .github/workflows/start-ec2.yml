@@ -21,8 +21,18 @@ jobs:
             --filters Name=tag:name,Values=ec2-deploy-cvwa \
             --query Reservations[].Instances[].InstanceId --output text`
 
+  sleep-jobs:
+    runs-on: ubuntu-latest
+    needs: [deployment-codedeploy]
+    steps:
+       - name: Sleep for 1min
+         uses: juliangruber/sleep-action@v1
+         with:
+           time: 1m
+
   ec2-public-ip-address:
     runs-on: ubuntu-latest
+    needs: [sleep-jobs]
     steps:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
