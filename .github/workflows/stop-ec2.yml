@@ -4,6 +4,20 @@ on:
     tags:
        - 'stop-ec2-*'
 jobs:
+  ec2-public-ip-address:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-2
+
+      - name: EC2 IP address
+        id: ip-address
+        run: aws ec2 describe-instances --filters "Name=tag:name,Values=ec2-deploy-cvwa" --query "Reservations[].Instances[].PublicIpAddress"
+
   stop-ec2:
     runs-on: ubuntu-latest
     steps:
