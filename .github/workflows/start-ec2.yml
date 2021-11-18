@@ -23,7 +23,7 @@ jobs:
 
   sleep-jobs:
     runs-on: ubuntu-latest
-    needs: [deployment-codedeploy]
+    needs: [start-ec2]
     steps:
        - name: Sleep for 1min
          uses: juliangruber/sleep-action@v1
