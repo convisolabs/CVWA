@@ -1,11 +1,11 @@
 name: Deploy CVWA
 on:
   push:
-    branches: [ main ]
+    tags:
+       - 'deploy-cvwa-*'
 jobs:
   delete-ec2:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
     steps:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -25,7 +25,6 @@ jobs:
   create-ec2:
     runs-on: ubuntu-latest
     needs: [delete-ec2]
-    if: github.ref == 'refs/heads/main'
     steps:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -55,7 +54,6 @@ jobs:
   sleep-jobs-v1:
     runs-on: ubuntu-latest
     needs: [create-ec2]
-    if: github.ref == 'refs/heads/main'
     steps:
        - name: Sleep for 1min
          uses: juliangruber/sleep-action@v1
@@ -65,7 +63,6 @@ jobs:
   deployment-codedeploy:
     runs-on: ubuntu-latest
     needs: [sleep-jobs-v1]
-    if: github.ref == 'refs/heads/main'
     steps:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -86,7 +83,6 @@ jobs:
   sleep-jobs-v2:
     runs-on: ubuntu-latest
     needs: [deployment-codedeploy]
-    if: github.ref == 'refs/heads/main'
     steps:
        - name: Sleep for 1min
          uses: juliangruber/sleep-action@v1
@@ -96,7 +92,6 @@ jobs:
   ec2-public-ip-address:
     runs-on: ubuntu-latest
     needs: [sleep-jobs-v2]
-    if: github.ref == 'refs/heads/main'
     steps:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
