@@ -18,9 +18,8 @@ jobs:
         id: ip-address
         run: aws ec2 describe-instances --filters "Name=tag:name,Values=ec2-deploy-cvwa" --query "Reservations[].Instances[].PublicIpAddress"
 
-  stop-ec2:
+  delete-ec2:
     runs-on: ubuntu-latest
-    needs: [ec2-public-ip-address]
     steps:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -28,11 +27,11 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-2
-      - name: Stop EC2
-        id: stop-ec2
+
+      - name: Delete EC2
+        id: delete-code-deploy-tag
         run: |
-          aws ec2 stop-instances \
+          aws ec2 terminate-instances \
             --instance-ids `aws ec2 describe-instances \
             --filters Name=tag:name,Values=ec2-deploy-cvwa \
             --query Reservations[].Instances[].InstanceId --output text`
-
