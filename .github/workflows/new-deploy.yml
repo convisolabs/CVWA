@@ -16,7 +16,19 @@ jobs:
 
       - name: Install install-codedeploy-cvwa.sh
         id: wget-install-codedeploy-cvwa
-        run: wget https://raw.githubusercontent.com/G4L1T0/install-codedeploy/main/install-codedeploy-cvwa.sh && chmod +x install-codedeploy-cvwa.sh
+        run: |
+          echo '#!/bin/bash
+          sudo apt-get update && sudo apt-get upgrade -y
+          sudo apt-get install git apache2 php7.4-cli php7.4-fpm ruby-full libapache2-mod-php7.4 -y
+          
+          sudo systemctl reload apache2
+          sudo systemctl enable apache2
+          
+          wget https://aws-codedeploy-us-east-2.s3.us-east-2.amazonaws.com/latest/install
+          chmod +x install
+          sudo ./install auto
+          
+          sudo service codedeploy-agent start' > install-codedeploy-cvwa.sh && chmod +x install-codedeploy-cvwa.sh
 
       - name: Create EC2
         id: create-ec2-tags
