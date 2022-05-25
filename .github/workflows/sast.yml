@@ -1,0 +1,20 @@
+name: CI
+on:
+ push:
+   branches: [ master ]
+ pull_request:
+   branches: [ master ]
+
+jobs:
+ conviso-sast:
+   runs-on: ubuntu-latest
+   container:
+     image: convisoappsec/flowcli
+     env:
+       FLOW_API_KEY:  ${{secrets.CONVISO_API_KEY}}
+       FLOW_PROJECT_CODE: ${{secrets.CONVISO_PROJECT_CODE}}
+   steps:
+   - uses: actions/checkout@v2
+
+   - name: Run SAST
+     run: conviso sast run
