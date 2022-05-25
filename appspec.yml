@@ -1,4 +1,4 @@
-version: 0.0
+version: 0.0.1
 os: linux
 files:
  - source: .
@@ -9,5 +9,5 @@ hooks:
       timeout: 300
       runas: root
   ApplicationStart:
-    - location: scripts/grupo-html.sh
+    - location: scripts/group-html.sh
       timeout: 300
