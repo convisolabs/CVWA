@@ -36,4 +36,3 @@ jobs:
             --instance-ids `aws ec2 describe-instances \
             --filters Name=tag:name,Values=ec2-deploy-cvwa \
             --query Reservations[].Instances[].InstanceId --output text`
-

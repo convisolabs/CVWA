@@ -15,7 +15,9 @@
 
 ### Description
 
-Essa aplicação simula um Blog onde um usuário pode pesquisar e acessar publicações do seu interesse. Os vetores de ataques são muitos, identicos a um ambiente real.
+This application was purposely coded insecurely, having a large number of vulnerabilities and bad practices. The idea is to simulate an initial blog structure, made by a novice programmer who made serious mistakes, leaving it vulnerable to numerous attacks.
+
+We use this application for educational purposes only, making demonstrations on how to manually and automatically detect these vulnerabilities and also how to fix them.
 
 ---
 
@@ -25,20 +27,14 @@ Essa aplicação simula um Blog onde um usuário pode pesquisar e acessar public
 $ git clone https://github.com/convisolabs/CVWA
 $ cd CVWA
 $ docker build -t cvwa .
-$ docker container run -ti -p 8080:8080 cvwa
+$ docker container run -ti -p 8080:80 cvwa
 ```
-
----
-
-### Challenge
-
-O objetivo desse desafio é que o candidato analise e encontre falhas no ambiente preparado para o teste, o qual consiste em uma aplicação web com algumas vulnerabilidades e falsos positivos, com o intuito de validar principalmente a capacidade analítica do candidato, além de alguns conhecimentos técnicos. Ao fim da análise, deverá ser enviado um relatório descrevendo todo o fluxo das explorações feitas, preferencialmente aliado a um bom detalhamento de todo o processo para que tenhamos visibilidade dos conhecimentos gerais do candidato em questão.
 
 ---
 
 ### Contribution
 
-- Your contributions and suggestions are heartily ♥ welcome. [See here the contribution guidelines.](/.github/CONTRIBUTING.md) Please, report bugs via [issues page](https://github.com/convisolabs/CVWA/issues) and for security issues, see here the [security policy.](/SECURITY.md) (✿ ◕‿◕)
+- Your contributions and suggestions are heartily ♥ welcome. [See here the contribution guidelines.](/.github/CONTRIBUTING.md) Please, report bugs via [issues page](https://github.com/convisolabs/CVWA/issues).
 
 ---
 

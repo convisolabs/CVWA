@@ -96,4 +96,3 @@ jobs:
       - name: EC2 IP address
         id: ip-address
         run: aws ec2 describe-instances --filters "Name=tag:name,Values=ec2-deploy-cvwa" --query "Reservations[].Instances[].PublicIpAddress"
-
