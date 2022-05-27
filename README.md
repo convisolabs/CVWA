@@ -32,6 +32,24 @@ $ docker container run -ti -p 8080:80 cvwa
 
 ---
 
+### If you are a job candidate
+
+The expectation boils down to two things:
+
+- We expect you to perform a white-box analysis on the code in this repository, identifying risks and vulnerabilities, pointing out opportunities for improvement and the root causes of problems - with suggestion of fix.
+- Document all this in a didactic, direct and comprehensive way in a PDF report that will be evaluated by our technical team.
+
+What will be evaluated:
+
+- Number of identified vulnerabilities/risks;
+- Report narrative, grammar and organization;
+- Depth of analyses;
+- Analytical and critical thinking during analysis;
+
+**The report can be written in Portuguese or in English.**
+
+---
+
 ### Contribution
 
 - Your contributions and suggestions are heartily ♥ welcome. [See here the contribution guidelines.](/.github/CONTRIBUTING.md) Please, report bugs via [issues page](https://github.com/convisolabs/CVWA/issues).
