@@ -1,4 +1,4 @@
-name: Conviso SAST
+name: Conviso SCA
 on:
  push:
    branches: [ main ]
@@ -6,7 +6,7 @@ on:
    branches: [ main ]
 
 jobs:
- conviso-sast:
+ conviso-sca:
    runs-on: ubuntu-latest
    container:
      image: convisoappsec/flowcli
@@ -16,5 +16,5 @@ jobs:
    steps:
    - uses: actions/checkout@v2
 
-   - name: Run SAST
-     run: conviso sast run
+   - name: Run SCA
+     run: conviso sca run
