@@ -16,9 +16,11 @@ jobs:
    steps:
     - uses: actions/checkout@v2
 
-    - name: codereview
-    
-      run: |
-        conviso deploy create with tag-tracker sort-by time
-        conviso deploy create with tag-tracker sort-by versioning-style
-        conviso deploy create with values
+    - name: sort-by-time
+      run: conviso deploy create with tag-tracker sort-by time
+      
+    - name: versioning-style
+      run: conviso deploy create with tag-tracker sort-by versioning-style
+      
+    - name: deploy
+      run: conviso deploy create with values
