@@ -15,11 +15,8 @@ jobs:
        FLOW_PROJECT_CODE: ${{secrets.CONVISO_PROJECT_CODE}}
    steps:
     - uses: actions/checkout@v2
-
-    - name: sort-by-time
-      run: conviso deploy create with tag-tracker sort-by time
-      
-    - name: versioning-style
+     
+    - name: codereview
       run: conviso deploy create with tag-tracker sort-by versioning-style
       
     - name: deploy
