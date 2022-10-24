@@ -19,6 +19,6 @@ jobs:
     - name: codereview
     
       run: |
-        conviso deploy create with tag-tracker sort-by time \
-        conviso deploy create with tag-tracker sort-by versioning-style \
+        conviso deploy create with tag-tracker sort-by time
+        conviso deploy create with tag-tracker sort-by versioning-style
         conviso deploy create with values
