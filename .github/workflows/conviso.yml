@@ -4,6 +4,7 @@ on:
    branches: [ main ]
  pull_request:
    branches: [ main ]
+ workflow_dispatch:
 
 jobs:
  conviso-sast:
@@ -12,6 +13,7 @@ jobs:
      image: convisoappsec/convisocli
      env:
        CONVISO_API_KEY:  ${{secrets.CONVISO_API_KEY}}
+       CONVISO_COMPANY_ID: 443
    steps:
    - uses: actions/checkout@v4
 
