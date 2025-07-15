@@ -1,4 +1,4 @@
-name: Conviso SAST
+name: Conviso AST
 on:
  push:
    branches: [ main ]
