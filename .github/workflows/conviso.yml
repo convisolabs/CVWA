@@ -1,0 +1,19 @@
+name: CI
+on:
+ push:
+   branches: [ main ]
+ pull_request:
+   branches: [ main ]
+
+jobs:
+ conviso-sast:
+   runs-on: ubuntu-latest
+   container:
+     image: convisoappsec/convisocli
+     env:
+       CONVISO_API_KEY:  ${{secrets.CONVISO_API_KEY}}
+   steps:
+   - uses: actions/checkout@v4
+
+   - name: Run SAST
+     run: conviso sast run
