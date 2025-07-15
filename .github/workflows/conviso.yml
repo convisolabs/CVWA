@@ -1,4 +1,4 @@
-name: CI
+name: Conviso SAST
 on:
  push:
    branches: [ main ]
