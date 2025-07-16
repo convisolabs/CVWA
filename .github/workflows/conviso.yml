@@ -1,9 +1,5 @@
 name: Conviso AST
 on:
- push:
-   branches: [ main ]
- pull_request:
-   branches: [ main ]
  workflow_dispatch:
 
 jobs:
@@ -12,10 +8,11 @@ jobs:
    container:
      image: convisoappsec/convisocli
      env:
+       CONVISO_API_URL: 'https://staging.convisoappsec.com/'
        CONVISO_API_KEY:  ${{secrets.CONVISO_API_KEY}}
-       CONVISO_COMPANY_ID: 443
+       CONVISO_COMPANY_ID: 11
    steps:
    - uses: actions/checkout@v4
 
    - name: Run SAST
-     run: conviso ast run
+     run: conviso ast run --vulnerability-auto-close
